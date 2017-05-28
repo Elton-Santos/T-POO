@@ -1,0 +1,6 @@
+C:\Users\User\Desktop\Condominio\TrabalhoPOO\TrabalhoPOO\bin\Debug\TrabalhoPOO.exe.config
+C:\Users\User\Desktop\Condominio\TrabalhoPOO\TrabalhoPOO\bin\Debug\TrabalhoPOO.exe
+C:\Users\User\Desktop\Condominio\TrabalhoPOO\TrabalhoPOO\bin\Debug\TrabalhoPOO.pdb
+C:\Users\User\Desktop\Condominio\TrabalhoPOO\TrabalhoPOO\obj\Debug\TrabalhoPOO.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\Condominio\TrabalhoPOO\TrabalhoPOO\obj\Debug\TrabalhoPOO.exe
+C:\Users\User\Desktop\Condominio\TrabalhoPOO\TrabalhoPOO\obj\Debug\TrabalhoPOO.pdb
