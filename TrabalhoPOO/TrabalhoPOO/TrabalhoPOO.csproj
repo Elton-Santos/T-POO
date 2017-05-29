@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\MetodosDeComando.cs" />
+    <Compile Include="Controller\TipoDeConta.cs" />
     <Compile Include="Model\ContasAPagar.cs" />
     <Compile Include="Model\Inquilino.cs" />
     <Compile Include="Model\Contato.cs" />

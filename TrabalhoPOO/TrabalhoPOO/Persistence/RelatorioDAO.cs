@@ -65,6 +65,49 @@ namespace TrabalhoPOO.Persistence
             }
         }
 
+        public void maiorValorDevido()
+        {
+            con = new SqlConnection();
+            db = new Persistence.conexao();
+            con.ConnectionString = db.getConnectionString();
+
+            SqlDataReader dr = null;
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("select MAX(divi.valorDivida) from dbo.Divida divi", con);
+
+                dr = cmd.ExecuteReader();
+                // relatorio.printPessoa(); // Classe Relatório
+
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                while (dr.Read())
+                {
+                    Console.WriteLine(" {0,2}",
+                        dr[0]);
+                    Console.WriteLine("▒------------------------------------------------------------------------------------------------------------------------------------------------------▒\n");
+                }
+                Console.WriteLine("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+                Console.ForegroundColor = ConsoleColor.White;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERRO: ", ex.Message);
+            }
+            finally
+            {
+                if (dr != null)
+                {
+                    dr.Close();
+                }
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+        }
+
         public void selectQuantidadeUnidadeProprieario()
         {
             con = new SqlConnection();

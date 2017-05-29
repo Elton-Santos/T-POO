@@ -22,7 +22,7 @@ namespace TrabalhoPOO.Persistence
         private SqlConnection con;
         Relatorio relatorio = new Relatorio();
 
-        public void insert(Proprietario dados)
+        public void insertDadosPessoais(Proprietario dados)
         {
             con = new SqlConnection();
             db = new Persistence.conexao();
@@ -40,8 +40,7 @@ namespace TrabalhoPOO.Persistence
 
                 con.Open();
                 cmd.ExecuteNonQuery();
-                Console.WriteLine("Dados Gravados com Sucesso!");
-                Console.Read();
+                Console.WriteLine("\n| Dados Gravados com Sucesso!");
             }
             catch (Exception ex)
             {
@@ -52,6 +51,94 @@ namespace TrabalhoPOO.Persistence
                 con.Close();
             }
         }
+
+        public void insertEndereco(Proprietario dados)
+        {
+            con = new SqlConnection();
+            db = new Persistence.conexao();
+            con.ConnectionString = db.getConnectionString();
+
+            SqlCommand cmd = new SqlCommand("INSERT INTO Endereco(logradouro, numero, complemento, cep, estado, uf, bairro) VALUES(@logradouro, @numero, @complemento, @cep, @estado, @uf, @bairro)", con);
+
+            try
+            {
+                cmd.Parameters.AddWithValue("@logradouro", dados.Endereco.Logradouro);
+                cmd.Parameters.AddWithValue("@numero", dados.Endereco.Numero);
+                cmd.Parameters.AddWithValue("@complemento", dados.Endereco.Complemento);
+                cmd.Parameters.AddWithValue("@cep", dados.Endereco.Cep);
+                cmd.Parameters.AddWithValue("@estado", dados.Endereco.Estado);
+                cmd.Parameters.AddWithValue("@uf", dados.Endereco.Uf);
+                cmd.Parameters.AddWithValue("@bairro", dados.Endereco.Bairro);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("\n| Dados Gravados com Sucesso!");              
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro: ", ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public void insertContato(Proprietario dados)
+        {
+            con = new SqlConnection();
+            db = new Persistence.conexao();
+            con.ConnectionString = db.getConnectionString();
+
+            SqlCommand cmd = new SqlCommand("INSERT INTO Contato(Residencial, celular, email) VALUES(@Residencial, @celular, @email)", con);
+            try
+            {
+                cmd.Parameters.AddWithValue("@Residencial", dados.Contato.TelResidencial);
+                cmd.Parameters.AddWithValue("@celular", dados.Contato.Celular);
+                cmd.Parameters.AddWithValue("@email", dados.Contato.Email);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("\n| Dados Gravados com Sucesso!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro: ", ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public void insertUnidade(Proprietario dados)
+        {
+            con = new SqlConnection();
+            db = new Persistence.conexao();
+            con.ConnectionString = db.getConnectionString();
+
+            SqlCommand cmd = new SqlCommand("INSERT INTO Unidade(nomeUnidade, bloco, ruaInterna, numAP) VALUES(@nomeUnidade, @bloco, @ruaInterna, @numAP)", con);
+            try
+            {
+                cmd.Parameters.AddWithValue("@nomeUnidade", dados.Unidade.NomeUnidade);
+                cmd.Parameters.AddWithValue("@bloco", dados.Unidade.Bloco);
+                cmd.Parameters.AddWithValue("@ruaInterna", dados.Unidade.RuaInterna);
+                cmd.Parameters.AddWithValue("@numAP", dados.Unidade.NumAP);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("\n| Dados Gravados com Sucesso!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro: " + ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
 
         public void select()
         {

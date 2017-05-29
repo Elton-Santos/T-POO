@@ -149,7 +149,7 @@ namespace TrabalhoPOO.View
             {
                 case "1":
                     Console.Clear();
-                    formProp.cadastroProprietario();
+                    formProp.formProprietario();
                     Console.ReadKey();
                     Console.Clear();
 
@@ -413,8 +413,9 @@ namespace TrabalhoPOO.View
             Console.Write("▒ ╔══════════════════════════════════ MENU ADMINISTRATIVO ═════════════════════════════════════════╗ ▒\n" +
                           "▒ ║                                                                                                ║ ▒\n" +
                           "▒ ║    1   =>  Pendências Financeira                                                               ║ ▒\n" +
-                          "▒ ║    2   =>  Consulta Unidade Por Proprietário                                                   ║ ▒\n" +                        
-                          "▒ ║    3   =>  Voltar ao Menu Anterior                                                             ║ ▒\n" +
+                          "▒ ║    2   =>  Consulta Unidade Por Proprietário                                                   ║ ▒\n" +
+                          "▒ ║    3   =>  Unidade com Maior Saldo Devedor                                                     ║ ▒\n" +
+                          "▒ ║    4   =>  Voltar ao Menu Anterior                                                             ║ ▒\n" +
                           "▒ ║    0   =>  Sair                                                                                ║ ▒\n" +
                           "▒ ║                                                                                                ║ ▒\n" +
                           "▒ ╚════════════════════════════════════════════════════════════════════════════════════════════════╝ ▒\n" +
@@ -431,8 +432,7 @@ namespace TrabalhoPOO.View
             {
                 case "1":
                     Console.Clear();
-                    contas.select();
-                    
+                    contas.select();                    
                     Console.Read();
                     break;
                 case "2":
@@ -440,7 +440,9 @@ namespace TrabalhoPOO.View
                     d.selectQuantidadeUnidadeProprieario();
                     Console.Read();                               
                     break;
-                case "3":                   
+                case "3":
+                    Console.Clear();
+                    d.maiorValorDevido();
                     break;
                 case "0":
                     Console.Clear();

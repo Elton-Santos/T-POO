@@ -13,18 +13,22 @@ namespace TrabalhoPOO.Model
         private string ruaInterna;
         private string numAP;
         private Proprietario proprietario;
+        private Endereco endereco;
+        private Inquilino inquilino;
 
         public Unidade()
         {
         }
 
-        public Unidade(string nomeUnidade, string bloco, string ruaInterna, string numAP, Proprietario proprietario)
+        public Unidade(string nomeUnidade, string bloco, string ruaInterna, string numAP, Proprietario proprietario, Endereco endereco, Inquilino inquilino)
         {
             this.nomeUnidade = nomeUnidade;
             this.bloco = bloco;
             this.ruaInterna = ruaInterna;
             this.numAP = numAP;
             this.proprietario = new Proprietario();
+            this.endereco = new Endereco();
+            this.inquilino = new Inquilino();
         }
 
         public string NomeUnidade { get { return nomeUnidade; } set { nomeUnidade = value; } }
