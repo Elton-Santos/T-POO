@@ -140,5 +140,25 @@ namespace TrabalhoPOO.Controller
                 con.Close();
             }
         }
+
+        public void quitarDivida(int id, double valor)
+        {           
+            con = new SqlConnection();
+            db = new Persistence.conexao();
+            con.ConnectionString = db.getConnectionString();
+
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("UPDATE Divida SET valorDivida = '" + valor + "'WHERE id_Divida=" + id + ";", con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                Console.WriteLine("\tDados Alterados com Sucesso!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }

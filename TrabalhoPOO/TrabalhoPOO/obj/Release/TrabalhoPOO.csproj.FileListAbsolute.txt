@@ -1,0 +1,5 @@
+C:\Users\User\Desktop\Condominio\TrabalhoPOO\TrabalhoPOO\bin\Release\TrabalhoPOO.exe.config
+C:\Users\User\Desktop\Condominio\TrabalhoPOO\TrabalhoPOO\bin\Release\TrabalhoPOO.exe
+C:\Users\User\Desktop\Condominio\TrabalhoPOO\TrabalhoPOO\bin\Release\TrabalhoPOO.pdb
+C:\Users\User\Desktop\Condominio\TrabalhoPOO\TrabalhoPOO\obj\Release\TrabalhoPOO.exe
+C:\Users\User\Desktop\Condominio\TrabalhoPOO\TrabalhoPOO\obj\Release\TrabalhoPOO.pdb

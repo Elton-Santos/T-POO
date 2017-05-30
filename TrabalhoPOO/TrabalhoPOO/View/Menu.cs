@@ -297,7 +297,7 @@ namespace TrabalhoPOO.View
             {
                 case "1":
                     Console.Clear();
-                    formDivida.formularioDivida();
+                    metodoOpcao.alterarDivida();
                     Console.ReadKey();
                     Console.Clear();
                     break;
@@ -424,7 +424,7 @@ namespace TrabalhoPOO.View
             Console.Write("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n");
             Console.Write("═══════════════>  Digite a Opção Desejada: ");
             string opcao = Console.ReadLine();
-            RelatorioDAO d = new RelatorioDAO();
+            RelatorioDAO relatorioCRUD = new RelatorioDAO();
             ContasAPAgarDAO contas = new ContasAPAgarDAO();
             Mensagens msg = new Mensagens();
 
@@ -437,12 +437,13 @@ namespace TrabalhoPOO.View
                     break;
                 case "2":
                     Console.Clear();
-                    d.selectQuantidadeUnidadeProprieario();
+                    relatorioCRUD.selectQuantidadeUnidadeProprieario();
                     Console.Read();
                     break;
                 case "3":
                     Console.Clear();
-                    d.maiorValorDevido();
+                    relatorioCRUD.maiorValorDevido();
+                    Console.Read();
                     break;
                 case "0":
                     Console.Clear();

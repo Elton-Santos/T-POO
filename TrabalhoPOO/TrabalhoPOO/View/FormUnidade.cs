@@ -51,20 +51,19 @@ namespace TrabalhoPOO.View
             Console.Write("| Bloco:...........................: "); unidade.Bloco = Convert.ToString(Console.ReadLine());
             Console.Write("| Rua Interna:.....................: "); unidade.RuaInterna = Convert.ToString(Console.ReadLine());
             Console.Write("| Número Apartamento:..............: "); unidade.NumAP = Console.ReadLine();
-            Console.WriteLine("\n|****************************************************************************************************|");            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("\n|****************************************************************************************************|");
+            Console.ForegroundColor = ConsoleColor.White;
 
         }
 
         public void formUnidade()
         {
-
             Menu menu = new Menu();
             cabecalho();
             try
             {
-                gravarUnidade(); ;
-
-                Console.Write("\n| Deseja Incluir novo Inquilino? " +
+                gravarUnidade(); 
+                Console.Write("\n| Deseja Incluir nova Unidade? " +
                                    "[1] SIM [2] NÃO ");
 
                 int opcao = Convert.ToInt32(Console.ReadLine());

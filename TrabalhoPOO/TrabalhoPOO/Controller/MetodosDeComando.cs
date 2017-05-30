@@ -26,7 +26,34 @@ namespace TrabalhoPOO.Controller
             Console.Write("\tDigite um ID para excluir? ");
            int  opcao = Convert.ToInt32(Console.ReadLine());
             return opcao;
-        }    
+        }
+        
+
+            public void alterarDivida()
+        {
+            ContasAPAgarDAO crud = new ContasAPAgarDAO();
+
+            try
+            {
+                Console.Write("\tDigite numero do ID: ");
+                int id = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("\tValor para Alteração: ");
+                double valor = Convert.ToDouble(Console.ReadLine());
+
+                Console.WriteLine();
+                crud.quitarDivida(id, valor);
+            }
+            catch (Exception)
+            {
+                msg.opcaoInvalida();
+                Console.ReadKey();
+                Console.Clear();
+                menu.menuAdministrativo();
+            }
+            Console.Clear();
+            menu.listaMetodosProprietario();
+        }
 
         public void alteraProprietario()
         {
