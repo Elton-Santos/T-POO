@@ -5,20 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TrabalhoPOO.Model;
-
+using TrabalhoPOO.Persistence;
 
 namespace TrabalhoPOO.View
 {
     public class FormUnidade
     {
-        Unidade uni = new Unidade();
+        Unidade unidade = new Unidade();
         Mensagens msg = new Mensagens();
+        UnidadeDAO crud = new UnidadeDAO();
 
-        public void formUnidade()
+        private void cabecalho()
         {
-
-            UnidadeDAO unidadeCRUD = new UnidadeDAO();
-            int opcao = 0;
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n" +
                           "▒                                                                                                    ▒\n" +
@@ -37,23 +35,49 @@ namespace TrabalhoPOO.View
                           "▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n");
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n");
+        }
 
+        private void gravarUnidade()
+        {
+            InquilinoDAO crudInquilino = new InquilinoDAO();
+            Proprietario crudProprietario = new Proprietario();
+            UnidadeDAO crudUnidade = new UnidadeDAO();
+            EnderecoDAO crudEndereco = new EnderecoDAO();
+
+            Console.ForegroundColor = ConsoleColor.White;
+            crudEndereco.select();
+            Console.Write("| ID Endereço......................: "); unidade.Endereco.Id_Endereco = Convert.ToInt32(Console.ReadLine());
+            Console.Write("| Nome da Unidade:.................: "); unidade.NomeUnidade = Convert.ToString(Console.ReadLine());
+            Console.Write("| Bloco:...........................: "); unidade.Bloco = Convert.ToString(Console.ReadLine());
+            Console.Write("| Rua Interna:.....................: "); unidade.RuaInterna = Convert.ToString(Console.ReadLine());
+            Console.Write("| Número Apartamento:..............: "); unidade.NumAP = Console.ReadLine();
+            Console.WriteLine("\n|****************************************************************************************************|");            Console.ForegroundColor = ConsoleColor.White;
+
+        }
+
+        public void formUnidade()
+        {
+
+            Menu menu = new Menu();
+            cabecalho();
             try
             {
-                Console.Write("| Nome do Condomínio:.....: "); uni.NomeUnidade = Console.ReadLine();
-                Console.Write("| Bloco:..................: "); uni.Bloco = Console.ReadLine();
-                Console.Write("| Número da Rua:..........: "); uni.RuaInterna = Console.ReadLine();
-                Console.Write("| Número do Apartamento:..: "); uni.NumAP = Console.ReadLine();
-                Console.Write("| Nome do proprietario:...: "); uni.Proprietario.Nome  = Convert.ToString(Console.ReadLine());
-                Console.Write("| CPF Proprietario:.......: "); uni.Proprietario.Cpf = Convert.ToString(Console.ReadLine());
+                gravarUnidade(); ;
 
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.Write("\n\t[ 1 ] Salvar  [ 2 ] Calcelar: ");
-                opcao = Convert.ToInt32(Console.ReadLine());
+                Console.Write("\n| Deseja Incluir novo Inquilino? " +
+                                   "[1] SIM [2] NÃO ");
+
+                int opcao = Convert.ToInt32(Console.ReadLine());
 
                 if (opcao.Equals(1))
                 {
-                    unidadeCRUD.insert(uni);
+                    Console.Clear();
+                    formUnidade();
+                }
+                else
+                {
+                    Console.Clear();
+                    menu.menuInicial();
                 }
             }
             catch (Exception)

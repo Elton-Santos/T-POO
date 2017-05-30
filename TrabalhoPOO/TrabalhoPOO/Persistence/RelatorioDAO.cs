@@ -123,12 +123,12 @@ namespace TrabalhoPOO.Persistence
                                                     "WHERE  prop.id_Proprietario = unid.id_Proprietario group by prop.nome", con);
 
                 dr = cmd.ExecuteReader();
-                relatorio.printDivida(); // Classe Relatório
+                relatorio.pintQuantidadeUnidadeProprietario(); // Classe Relatório
 
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 while (dr.Read())
                 {
-                    Console.WriteLine(" {0,2}\t\t | {1,15} ",
+                    Console.WriteLine(" {0,30} | {1,15} ",
                         dr[0], dr[1]);
                     Console.WriteLine("▒----------------------------------------------------------------------------------------------------▒\n");
                 }

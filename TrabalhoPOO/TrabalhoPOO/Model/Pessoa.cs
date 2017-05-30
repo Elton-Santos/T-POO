@@ -16,6 +16,8 @@ namespace TrabalhoPOO.Model
         private Endereco endereco;
         private Contato contato;
         private Unidade unidade;
+        private int id;
+      
 
        
         public Pessoa()
@@ -34,5 +36,7 @@ namespace TrabalhoPOO.Model
         public Endereco Endereco { get { return endereco; } set { endereco = value; } }
         public Contato Contato { get { return contato; } set { contato = value; } }
         public Unidade Unidade { get { return unidade; } set { unidade = value; } }
+
+        public int Id { get => id; set => id = value; }
     }
 }

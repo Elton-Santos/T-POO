@@ -12,16 +12,13 @@ namespace TrabalhoPOO.View
 {
     public class FormContasAPagar
     {
-        public void formularioDivida()
+        ContasAPagar div = new ContasAPagar();
+        ContasAPAgarDAO dividaCrud = new ContasAPAgarDAO();
+        Mensagens msg = new Mensagens();
+        Menu menu = new Menu();
+
+        private void cabecalho()
         {
-
-            ContasAPagar div = new ContasAPagar();
-            ContasAPAgarDAO dividaCrud = new ContasAPAgarDAO();
-            Mensagens msg = new Mensagens();
-            Menu menu = new Menu();
-
-
-            int opcao = 0;
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n" +
 
@@ -45,27 +42,36 @@ namespace TrabalhoPOO.View
                           "▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n");
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n");
-            
+        }
+
+        private void gravarContaAPagar()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\n|********************** L A N Ç A M E N T O   D E   C O N T A S  À   P A G A R **********************|\n");
+            Console.ForegroundColor = ConsoleColor.White;
+                       
+            Console.Write("| Descrição da Dívida:.............: "); div.DescricaoDivida = Console.ReadLine();
+            Console.Write("| Data de Vencimento:..............: "); div.DataVencimento = Convert.ToDateTime(Console.ReadLine());
+            Console.Write("| Valor Devido:....................: "); div.ValorDivida = Convert.ToDecimal(Console.ReadLine());
+            Console.Write("| Número do Apartamento:...........: "); div.UnidadeDevedora.NumAP = Convert.ToString(Console.ReadLine());
+            Console.WriteLine("\n|****************************************************************************************************|\n");
+            Console.ForegroundColor = ConsoleColor.White;
+
+        }
+
+        public void formularioDivida()
+        {            
+            cabecalho();
             try
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("\n|********************** L A N Ç A M E N T O   D E   C O N T A S  À   P A G A R **********************|\n");
-                Console.ForegroundColor = ConsoleColor.White;
-
-                Console.Write("| Descrição da Dívida:.............: "); div.DescricaoDivida = Console.ReadLine();
-                Console.Write("| Data de Vencimento:..............: "); div.DataVencimento = Convert.ToDateTime(Console.ReadLine());
-                Console.Write("| Valor Devido:....................: "); div.ValorDivida = Convert.ToDecimal(Console.ReadLine());
-                Console.Write("| Número do Apartamento:...........: "); div.UnidadeDevedora = Convert.ToString(Console.ReadLine());
-
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.Write("\n\t[ 1 ] Salvar  [ 2 ] Calcelar: ");
-                opcao = Convert.ToInt32(Console.ReadLine());
-
+                gravarContaAPagar();
                 ArquivoTXT gravarFicheiro = new ArquivoTXT();
+                Console.Write("\n| [ 1 ] Salvar  [ 2 ] Calcelar: ");
+                int opcao = Convert.ToInt32(Console.ReadLine());
 
                 if (opcao.Equals(1))
                 {
-                    gravarFicheiro.arquivoTXT(div.DescricaoDivida, div.DataVencimento, div.ValorDivida, div.UnidadeDevedora);
+                   gravarFicheiro.arquivoTXT(div.DescricaoDivida, div.DataVencimento, div.ValorDivida, div.UnidadeDevedora.NomeUnidade);
                     dividaCrud.insert(div);
                 }
                 else

@@ -26,7 +26,7 @@ namespace TrabalhoPOO.Controller
             Console.Write("\tDigite um ID para excluir? ");
            int  opcao = Convert.ToInt32(Console.ReadLine());
             return opcao;
-        }
+        }    
 
         public void alteraProprietario()
         {

@@ -87,6 +87,7 @@
     <Compile Include="Persistence\ArquivoTXT.cs" />
     <Compile Include="Persistence\conexao.cs" />
     <Compile Include="Persistence\ContasAPAgarDAO.cs" />
+    <Compile Include="Persistence\EnderecoDAO.cs" />
     <Compile Include="Persistence\InquilinoDAO.cs" />
     <Compile Include="Persistence\ProprietarioDAO.cs" />
     <Compile Include="Persistence\RelatorioDAO.cs" />

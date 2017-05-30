@@ -29,13 +29,13 @@ namespace TrabalhoPOO.View
                 con.Open();
                 SqlCommand cmd = new SqlCommand("SELECT * FROM Unidade", con);
                 dr = cmd.ExecuteReader();
-                relatorio.printQuantidadePRoprietario(); // Classe Relatório
+                relatorio.printQuantidadeUnidade(); // Classe Relatório
 
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 while (dr.Read())
                 {
-                    Console.WriteLine(" {0,2} \t {1,10} \t {2,10} \t {3,10} ",
-                        dr[0], dr[1], dr[2], dr[3]);
+                    Console.WriteLine("| {0,2} | {1,12} | {2,10} | {3,11} | {4,10}                                          |",
+                        dr[0], dr[1], dr[2], dr[3], dr[4]);
                     Console.WriteLine("▒----------------------------------------------------------------------------------------------------▒\n");
                 }
                 Console.WriteLine("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
@@ -59,31 +59,28 @@ namespace TrabalhoPOO.View
             }
         }
 
-        public void insert(Unidade uni)
+        public void insert(Unidade dados)
         {
-
             con = new SqlConnection();
             db = new Persistence.conexao();
             con.ConnectionString = db.getConnectionString();
 
-
             try
             {
-
                 SqlCommand cmd = new SqlCommand("INSERT into Unidade(nomeUnidade, bloco, ruaInterna, numAP, nome, cpf) " +
                                                   "VALUES (@nomeUnidade, @bloco, @ruaInterna, @numAP, @nome, @cpf)", con);
 
-                cmd.Parameters.AddWithValue("@nomeUnidade", uni.NomeUnidade);
-                cmd.Parameters.AddWithValue("@bloco", uni.Bloco);
-                cmd.Parameters.AddWithValue("@ruaInterna", uni.RuaInterna);
-                cmd.Parameters.AddWithValue("@numAP", uni.NumAP);
-                cmd.Parameters.AddWithValue("@nome", uni.Proprietario.Nome);
-                cmd.Parameters.AddWithValue("@cpf", uni.Proprietario.Cpf);
+                cmd.Parameters.AddWithValue("@nomeUnidade", dados.NomeUnidade);
+                cmd.Parameters.AddWithValue("@bloco", dados.Bloco);
+                cmd.Parameters.AddWithValue("@ruaInterna", dados.RuaInterna);
+                cmd.Parameters.AddWithValue("@numAP", dados.NumAP);
+                cmd.Parameters.AddWithValue("@nome", dados.Proprietario.Nome);
+                cmd.Parameters.AddWithValue("@cpf", dados.Proprietario.Cpf);
 
 
                 con.Open();
                 cmd.ExecuteNonQuery();
-                Console.WriteLine("\n\t## Cadastro realizado com sucesso! ##\n");
+                Console.WriteLine("\n| Cadastro realizado com sucesso! ##\n");
 
             }
             catch (SqlException ex)

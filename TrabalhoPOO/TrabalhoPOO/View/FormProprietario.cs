@@ -55,6 +55,8 @@ namespace TrabalhoPOO.View
             Console.WriteLine("\n|***************************************** E N D E R Ç O ********************************************|\n");
             Console.ForegroundColor = ConsoleColor.White;
 
+            crud.select();
+            Console.Write("| ID Proprietário..................: "); proprietario.Id = Convert.ToInt32(Console.ReadLine());
             Console.Write("| Logradouro:......................: "); proprietario.Endereco.Logradouro = Convert.ToString(Console.ReadLine());
             Console.Write("| Número:..........................: "); proprietario.Endereco.Numero = Convert.ToString(Console.ReadLine());
             Console.Write("| Complemento:.....................: "); proprietario.Endereco.Complemento = Convert.ToString(Console.ReadLine());
@@ -71,9 +73,10 @@ namespace TrabalhoPOO.View
             Console.WriteLine("\n|***************************************** E N D E R Ç O ********************************************|\n");
             Console.ForegroundColor = ConsoleColor.White;
 
+            Console.Write("| ID Proprietário..................: "); proprietario.Id = Convert.ToInt32(Console.ReadLine());
             Console.Write("| Telefone Residencial:............: "); proprietario.Contato.TelResidencial = Convert.ToString(Console.ReadLine());
             Console.Write("| Número:..........................: "); proprietario.Contato.Celular = Convert.ToString(Console.ReadLine());
-            Console.Write("| Complemento:.....................: "); proprietario.Contato.Email = Convert.ToString(Console.ReadLine());           
+            Console.Write("| Email:...........................: "); proprietario.Contato.Email = Convert.ToString(Console.ReadLine());           
             crud.insertContato(proprietario);
         }
 
@@ -83,6 +86,15 @@ namespace TrabalhoPOO.View
             Console.WriteLine("\n|***************************************** U N I D A D E ********************************************|");
             Console.ForegroundColor = ConsoleColor.White; Unidade uni = new Unidade();
 
+            EnderecoDAO crudEnd = new EnderecoDAO();
+
+            crudEnd.select();
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\n|***************************************** U N I D A D E ********************************************|");
+            Console.ForegroundColor = ConsoleColor.White; 
+            Console.Write("| ID Inquilino.....................: "); proprietario.Id = Convert.ToInt32(Console.ReadLine());
+            Console.Write("| ID Endereço......................: "); proprietario.Endereco.Id_Endereco = Convert.ToInt32(Console.ReadLine());
             Console.Write("| Nome da Unidade:.................: "); proprietario.Unidade.NomeUnidade = Convert.ToString(Console.ReadLine());
             Console.Write("| Bloco:...........................: "); proprietario.Unidade.Bloco = Convert.ToString(Console.ReadLine());
             Console.Write("| Rua Interna:.....................: "); proprietario.Unidade.RuaInterna = Convert.ToString(Console.ReadLine());

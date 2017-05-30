@@ -32,7 +32,7 @@ namespace TrabalhoPOO.Controller
                 con.Open();
                 SqlCommand cmd = new SqlCommand("SELECT * FROM Divida", con);
                 dr = cmd.ExecuteReader();
-                relatorio.printQuantidadePRoprietario(); // Classe Relatório
+                relatorio.printQuantidadeProprietario(); // Classe Relatório
 
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 while (dr.Read())

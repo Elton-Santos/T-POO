@@ -80,15 +80,16 @@ namespace TrabalhoPOO.Persistence
         }
 
         public void insertEndereco(Inquilino dados)
-        {
+        {            
             con = new SqlConnection();
             db = new Persistence.conexao();
             con.ConnectionString = db.getConnectionString();
 
-            SqlCommand cmd = new SqlCommand("INSERT INTO Endereco(logradouro, numero, complemento, cep, estado, uf, bairro) VALUES(@logradouro, @numero, @complemento, @cep, @estado, @uf, @bairro)", con);
+            SqlCommand cmd = new SqlCommand("INSERT INTO Endereco(id_Inquilino, logradouro, numero, complemento, cep, estado, uf, bairro) VALUES(@id_Inquilino, @logradouro, @numero, @complemento, @cep, @estado, @uf, @bairro)", con);
 
             try
             {
+                cmd.Parameters.AddWithValue("@id_Inquilino", dados.Id);
                 cmd.Parameters.AddWithValue("@logradouro", dados.Endereco.Logradouro);
                 cmd.Parameters.AddWithValue("@numero", dados.Endereco.Numero);
                 cmd.Parameters.AddWithValue("@complemento", dados.Endereco.Complemento);
@@ -156,13 +157,12 @@ namespace TrabalhoPOO.Persistence
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 while (dr.Read())
                 {
-                    Console.WriteLine(" {0} \t {1} \t {2} \t {3} \t {4} \t  {5} \t {6}",
-                        dr[0], dr[1], dr[2], dr[3], dr[4], dr[5], dr[6]);
+                    Console.WriteLine("| {0,2} | {1,30} | {2,20} | {3,20} | {4,20} | {5,20}                      |",
+                        dr[0], dr[1], dr[2], dr[3], dr[4], dr[5]);
                     Console.WriteLine("▒------------------------------------------------------------------------------------------------------------------------------------------------------▒\n");
                 }
                 Console.WriteLine("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
                 Console.ForegroundColor = ConsoleColor.White;
-
             }
             catch (Exception ex)
             {

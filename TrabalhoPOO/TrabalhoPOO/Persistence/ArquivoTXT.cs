@@ -24,7 +24,9 @@ namespace TrabalhoPOO.Persistence
             {
                 if (File.Exists(ficheiro).Equals(true))
                 {
-                    escreve = File.AppendText(ficheiro);                    
+                    escreve = File.AppendText(ficheiro);
+                    Console.WriteLine("Dados Gravados com Sucesso!");
+                    Console.Read();
                     menu.menuAdministrativo();
                 }
                 else

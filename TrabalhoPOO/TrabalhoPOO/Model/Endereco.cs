@@ -15,21 +15,13 @@ namespace TrabalhoPOO.Model
         private string bairro;
         private string estado;
         private string uf;
+        private int id_Endereco;
 
         public Endereco()
         {
         }
 
-        public Endereco(string logradouro, string numero, string complemento, string cep, string bairro, string estado, string uf)
-        {
-            this.logradouro = logradouro;
-            this.numero = numero;
-            this.complemento = complemento;
-            this.cep = cep;
-            this.bairro = bairro;
-            this.estado = estado;
-            this.uf = uf;
-        }
+       
 
         public string Logradouro { get { return logradouro; } set { logradouro = value; } }
         public string Numero { get { return numero; } set { numero = value; } }
@@ -38,5 +30,7 @@ namespace TrabalhoPOO.Model
         public string Bairro { get { return bairro; } set { bairro = value; } }
         public string Estado { get { return estado; } set { estado = value; } }
         public string Uf { get { return uf; } set { uf = value; } }
+
+        public int Id_Endereco { get => id_Endereco; set => id_Endereco = value; }
     }
 }

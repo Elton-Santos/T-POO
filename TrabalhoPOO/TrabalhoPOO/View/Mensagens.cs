@@ -8,9 +8,7 @@ using System.Threading.Tasks;
 namespace TrabalhoPOO.View
 {
     public class Mensagens
-    {      
-       
-
+    {   
         Menu menu = new Menu();        
 
         public void opcaoInvalida()

@@ -46,23 +46,24 @@ namespace TrabalhoPOO.View
             Console.Write("| CPF:...................: "); inquilino.Cpf = Convert.ToString(Console.ReadLine());
             Console.Write("| RG:....................: "); inquilino.Rg = Console.ReadLine();
             Console.Write("| Data de Nascimento:....: "); inquilino.DataNascimento = Convert.ToDateTime(Console.ReadLine());
-            Console.Write("| Estado Civil:..........: "); inquilino.EstadoCivil = Console.ReadLine();
+            Console.Write("| Estado Civil:..........: "); inquilino.EstadoCivil = Console.ReadLine();            
             crud.insertDadosPessoais(inquilino);
         }
 
         private void gravarEndereco()
         {
+            crud.select();
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("\n|***************************************** E N D E R Ç O ********************************************|\n");
             Console.ForegroundColor = ConsoleColor.White;
-
+            Console.Write("| ID Inquilino...........: "); inquilino.Id = Convert.ToInt32(Console.ReadLine());
             Console.Write("| Logradouro:............: "); inquilino.Endereco.Logradouro = Convert.ToString(Console.ReadLine());
             Console.Write("| Número:................: "); inquilino.Endereco.Numero = Convert.ToString(Console.ReadLine());
             Console.Write("| Complemento:...........: "); inquilino.Endereco.Complemento = Convert.ToString(Console.ReadLine());
             Console.Write("| CEP:...................: "); inquilino.Endereco.Cep = Convert.ToString(Console.ReadLine());
             Console.Write("| Bairro:................: "); inquilino.Endereco.Bairro = Convert.ToString(Console.ReadLine());
             Console.Write("| Cidade:................: "); inquilino.Endereco.Estado = Convert.ToString(Console.ReadLine());
-            Console.Write("| UF::...................: "); inquilino.Endereco.Uf = Convert.ToString(Console.ReadLine());
+            Console.Write("| UF::...................: "); inquilino.Endereco.Uf = Convert.ToString(Console.ReadLine());           
             crud.insertEndereco(inquilino);
         }
 
@@ -72,6 +73,7 @@ namespace TrabalhoPOO.View
             Console.WriteLine("\n|***************************************** C O N T A T O ********************************************|\n");
             Console.ForegroundColor = ConsoleColor.White;
 
+            Console.Write("| ID Inquilino...........: "); inquilino.Id = Convert.ToInt32(Console.ReadLine());
             Console.Write("| Telefone Residencial:..: "); inquilino.Contato.TelResidencial = Convert.ToString(Console.ReadLine());
             Console.Write("| Celular:...............: "); inquilino.Contato.Celular = Convert.ToString(Console.ReadLine());
             Console.Write("| E-mail:................: "); inquilino.Contato.Email = Convert.ToString(Console.ReadLine());
@@ -80,10 +82,14 @@ namespace TrabalhoPOO.View
 
         private void gravarUnidade()
         {
+            EnderecoDAO crudEnd = new EnderecoDAO();
+
+            crudEnd.select();            
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("\n|***************************************** U N I D A D E ********************************************|");
             Console.ForegroundColor = ConsoleColor.White; Unidade uni = new Unidade();
-
+            Console.Write("| ID Inquilino...........: "); inquilino.Id = Convert.ToInt32(Console.ReadLine());
+            Console.Write("| ID Endereço............: "); inquilino.Endereco.Id_Endereco = Convert.ToInt32(Console.ReadLine());
             Console.Write("| Nome da Unidade:.......: "); inquilino.Unidade.NomeUnidade = Convert.ToString(Console.ReadLine());
             Console.Write("| Bloco:.................: "); inquilino.Unidade.Bloco = Convert.ToString(Console.ReadLine());
             Console.Write("| Rua Interna:...........: "); inquilino.Unidade.RuaInterna = Convert.ToString(Console.ReadLine());

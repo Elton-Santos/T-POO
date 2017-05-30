@@ -10,7 +10,7 @@ using TrabalhoPOO.Persistence;
 namespace TrabalhoPOO.View
 {
     public class Menu
-    {            
+    {
         FormProprietario formProprietario = new FormProprietario();
 
         public void menuInicial()
@@ -36,7 +36,7 @@ namespace TrabalhoPOO.View
                 Mensagens msg = new Mensagens();
 
                 string opcao = Console.ReadLine();
-              
+
                 switch (opcao)
                 {
                     case "1":
@@ -142,7 +142,7 @@ namespace TrabalhoPOO.View
 
             FormProprietario formProp = new FormProprietario();
             ProprietarioDAO crudProprietario = new ProprietarioDAO();
-             MetodosDeComando metodoOpcao = new MetodosDeComando();
+            MetodosDeComando metodoOpcao = new MetodosDeComando();
             Mensagens msg = new Mensagens();
 
             switch (opcao)
@@ -157,7 +157,7 @@ namespace TrabalhoPOO.View
                 case "2":
                     Console.Clear();
                     crudProprietario.select();
-                     metodoOpcao.alteraProprietario();
+                    metodoOpcao.alteraProprietario();
                     Console.Clear();
                     break;
                 case "3":
@@ -285,7 +285,7 @@ namespace TrabalhoPOO.View
             Console.Write("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n");
             Console.Write("═══════════════>  Digite a Opção Desejada: ");
             string opcao = Console.ReadLine();
-            
+
             MetodosDeComando metodoOpcao = new MetodosDeComando();
             FormContasAPagar formDivida = new FormContasAPagar();
             ContasAPAgarDAO crudDivida = new ContasAPAgarDAO();
@@ -294,7 +294,7 @@ namespace TrabalhoPOO.View
             Mensagens msg = new Mensagens();
 
             switch (opcao)
-            {   
+            {
                 case "1":
                     Console.Clear();
                     formDivida.formularioDivida();
@@ -310,7 +310,7 @@ namespace TrabalhoPOO.View
                     break;
                 case "3":
                     Console.Clear();
-                    relatorios();  
+                    relatorios();
                     Console.Clear();
                     break;
                 case "4":
@@ -359,7 +359,7 @@ namespace TrabalhoPOO.View
             Mensagens msg = new Mensagens();
             UnidadeDAO crudUnidade = new UnidadeDAO();
             MetodosDeComando metodoOpcao = new MetodosDeComando();
-           
+
             switch (opcao)
             {
                 case "1":
@@ -432,13 +432,13 @@ namespace TrabalhoPOO.View
             {
                 case "1":
                     Console.Clear();
-                    contas.select();                    
+                    contas.select();
                     Console.Read();
                     break;
                 case "2":
                     Console.Clear();
                     d.selectQuantidadeUnidadeProprieario();
-                    Console.Read();                               
+                    Console.Read();
                     break;
                 case "3":
                     Console.Clear();
